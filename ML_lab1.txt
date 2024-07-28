@@ -12,6 +12,31 @@ for x in s:
 print('No. of vowels',count)
 print('No. of consonents',count1)
 
+#2)
+def matrixmul(a,b):
+    m=len(a)
+    n=len(a[0])
+    p=len(b[0])
+    if len(b)!=n:
+        return "matrices are not multipliable"
+    c=[]
+    for i in range(m):
+        c.append([0]*p)
+    for i in range(m):
+        for j in range(p):
+            for k in range(n):
+                c[i][j]+=a[i][k]*b[k][j]
+    return c
+A=[[1,2,3],[4,5,6]]
+B=[[7,8],[9,10],[11,12]]
+result=matrixmul(A,B)
+if type(result) == str:
+    print(result)
+else:
+    print("Matrix AB:")
+    for row in result:
+        print(row)
+
 
 #3)
 l1 = list(map(int, input().split()))
