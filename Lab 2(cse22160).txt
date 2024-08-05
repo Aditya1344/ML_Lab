@@ -1,1 +1,36 @@
-Lab 2
+#Lab 2
+#A1
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+purchase_data = pd.read_excel('Lab Session Data.xlsx' , sheet_name='Purchase data')
+
+
+
+A = purchase_data.iloc[:,1:4].values
+C = purchase_data.iloc[:,4].values
+
+# Dimensionality of Vector space
+
+dimensionality = A.shape[1]
+
+num_vectors = A.shape[0]
+
+rank_A = np.linalg.matrix_rank(A)
+
+# pseudo inverse of A
+
+A_pinv = np.linalg.pinv(A)
+
+# Cost of each product
+product_costs = A_pinv.dot(C)
+
+
+# Output the results
+print(f"Dimensionality of the vector space: {dimensionality}")
+print(f"Number of vectors in the vector space: {num_vectors}")
+print(f"Rank of Matrix A: {rank_A}")
+print("Cost of each product:", product_costs)
